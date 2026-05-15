@@ -35,6 +35,9 @@
 		"persistSuccess": {
 			"type": "boolean",
 			"default": false
+		},
+		"businessUnitId": {
+			"type": "integer"
 		}
 	},
 	"description": "Hubspot form embed block with configuration options",
