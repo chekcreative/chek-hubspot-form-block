@@ -142,9 +142,6 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 					/>
 					<TextControl
 						label={ __( 'Business Unit ID', 'hubspot-form-block' ) }
-						type="number"
-						min="1"
-						step="1"
 						value={
 							businessUnitId !== undefined
 								? String( businessUnitId )
