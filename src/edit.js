@@ -142,18 +142,11 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 					/>
 					<TextControl
 						label={ __( 'Business Unit ID', 'hubspot-form-block' ) }
-						value={
-							businessUnitId !== undefined
-								? String( businessUnitId )
-								: ''
-						}
+						value={ businessUnitId }
 						placeholder={ String( defaultBusinessUnitId ) }
-						onChange={ ( value ) => {
-							const parsed = parseInt( value, 10 );
+						onChange={ ( newBusinessUnitId ) => {
 							setAttributes( {
-								businessUnitId: isNaN( parsed )
-									? undefined
-									: parsed,
+								businessUnitId: newBusinessUnitId,
 							} );
 							setIsGlobalChanged( true );
 						} }
@@ -186,7 +179,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 							onClick={ () => {
 								setAttributes( {
 									portalId: '',
-									businessUnitId: undefined,
+									businessUnitId: '',
 								} );
 								updateDefaults(
 									portalId,

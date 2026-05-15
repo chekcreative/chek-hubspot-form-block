@@ -37,7 +37,8 @@
 			"default": false
 		},
 		"businessUnitId": {
-			"type": "integer"
+			"type": "string",
+			"default": ""
 		}
 	},
 	"description": "Hubspot form embed block with configuration options",
