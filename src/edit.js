@@ -132,21 +132,25 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 				>
 					<TextControl
 						label={ __( 'Portal ID', 'hubspot-form-block' ) }
-						value={ portalId }
-						placeholder={ defaultPortalId }
-						onChange={ ( newPortalId ) => {
-							setAttributes( { portalId: newPortalId } );
+						value={ portalId ? String( portalId ) : '' }
+						placeholder={ String( defaultPortalId ) }
+						onChange={ ( value ) => {
+							const parsed = parseInt( value, 10 );
+							setAttributes( {
+								portalId: isNaN( parsed ) ? 0 : parsed,
+							} );
 							setIsGlobalChanged( true );
 						} }
 						required={ ! defaultPortalId }
 					/>
 					<TextControl
 						label={ __( 'Business Unit ID', 'hubspot-form-block' ) }
-						value={ businessUnitId }
+						value={ businessUnitId ? String( businessUnitId ) : '' }
 						placeholder={ String( defaultBusinessUnitId ) }
-						onChange={ ( newBusinessUnitId ) => {
+						onChange={ ( value ) => {
+							const parsed = parseInt( value, 10 );
 							setAttributes( {
-								businessUnitId: newBusinessUnitId,
+								businessUnitId: isNaN( parsed ) ? 0 : parsed,
 							} );
 							setIsGlobalChanged( true );
 						} }
@@ -178,8 +182,8 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 							variant="secondary"
 							onClick={ () => {
 								setAttributes( {
-									portalId: '',
-									businessUnitId: '',
+									portalId: 0,
+									businessUnitId: 0,
 								} );
 								updateDefaults(
 									portalId,
