@@ -8,8 +8,8 @@
 	"icon": "clipboard",
 	"attributes": {
 		"portalId": {
-			"type": "integer",
-			"default": 0
+			"type": [ "integer", "null" ],
+			"default": null
 		},
 		"region": {
 			"type": "string",
@@ -37,8 +37,8 @@
 			"default": false
 		},
 		"businessUnitId": {
-			"type": "integer",
-			"default": 0
+			"type": [ "integer", "null" ],
+			"default": null
 		}
 	},
 	"description": "Hubspot form embed block with configuration options",

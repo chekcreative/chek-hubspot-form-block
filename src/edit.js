@@ -137,7 +137,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 						onChange={ ( value ) => {
 							const parsed = parseInt( value, 10 );
 							setAttributes( {
-								portalId: isNaN( parsed ) ? 0 : parsed,
+								portalId: isNaN( parsed ) ? null : parsed,
 							} );
 							setIsGlobalChanged( true );
 						} }
@@ -150,7 +150,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 						onChange={ ( value ) => {
 							const parsed = parseInt( value, 10 );
 							setAttributes( {
-								businessUnitId: isNaN( parsed ) ? 0 : parsed,
+								businessUnitId: isNaN( parsed ) ? null : parsed,
 							} );
 							setIsGlobalChanged( true );
 						} }
@@ -182,8 +182,8 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 							variant="secondary"
 							onClick={ () => {
 								setAttributes( {
-									portalId: 0,
-									businessUnitId: 0,
+									portalId: null,
+									businessUnitId: null,
 								} );
 								updateDefaults(
 									portalId,
