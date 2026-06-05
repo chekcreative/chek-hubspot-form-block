@@ -18,7 +18,7 @@ test.describe( 'HubSpot Form — inline success message', () => {
 		} );
 
 		await editor.insertBlock( {
-			name: 'hubspot/form',
+			name: 'chek/hubspot-form',
 			attributes: {
 				portalId: PORTAL_ID,
 				region: 'na1',
@@ -58,7 +58,7 @@ test.describe( 'HubSpot Form — inline success message', () => {
 		} );
 
 		await editor.insertBlock( {
-			name: 'hubspot/form',
+			name: 'chek/hubspot-form',
 			attributes: {
 				portalId: PORTAL_ID,
 				region: 'na1',
@@ -108,7 +108,7 @@ test.describe( 'HubSpot Form — inline success message', () => {
 		} );
 
 		await editor.insertBlock( {
-			name: 'hubspot/form',
+			name: 'chek/hubspot-form',
 			attributes: {
 				portalId: PORTAL_ID,
 				region: 'na1',

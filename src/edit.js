@@ -41,7 +41,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 				{
 					placeholder: __(
 						'Optional inline response message…',
-						'hubspot-from-block'
+						'chek-hubspot-form-block'
 					),
 				},
 			],
@@ -80,10 +80,10 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 		}
 		registerBlockVariation( 'core/group', {
 			name: 'hubspot-form-first-submission',
-			title: __( 'First Submission Message', 'hubspot-form-block' ),
+			title: __( 'First Submission Message', 'chek-hubspot-form-block' ),
 			description: __(
 				'Content shown only after the first successful submission on this page load.',
-				'hubspot-form-block'
+				'chek-hubspot-form-block'
 			),
 			attributes: { className: 'is-hubspot-form-first-submission' },
 			isActive: ( attrs ) =>
@@ -127,11 +127,11 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 		<div { ...innerBlocksProps }>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Global Settings', 'hubspot-form-block' ) }
+					title={ __( 'Global Settings', 'chek-hubspot-form-block' ) }
 					initialOpen={ ! defaultPortalId }
 				>
 					<TextControl
-						label={ __( 'Portal ID', 'hubspot-form-block' ) }
+						label={ __( 'Portal ID', 'chek-hubspot-form-block' ) }
 						value={ portalId ? String( portalId ) : '' }
 						placeholder={ String( defaultPortalId ) }
 						onChange={ ( value ) => {
@@ -144,7 +144,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 						required={ ! defaultPortalId }
 					/>
 					<TextControl
-						label={ __( 'Business Unit ID', 'hubspot-form-block' ) }
+						label={ __( 'Business Unit ID', 'chek-hubspot-form-block' ) }
 						value={ businessUnitId ? String( businessUnitId ) : '' }
 						placeholder={ String( defaultBusinessUnitId ) }
 						onChange={ ( value ) => {
@@ -156,16 +156,16 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 						} }
 					/>
 					<SelectControl
-						label={ __( 'Region', 'hubspot-form-block' ) }
+						label={ __( 'Region', 'chek-hubspot-form-block' ) }
 						options={ [
 							{
-								label: __( 'Europe', 'hubspot-form-block' ),
+								label: __( 'Europe', 'chek-hubspot-form-block' ),
 								value: 'eu1',
 							},
 							{
 								label: __(
 									'North America',
-									'hubspot-form-block'
+									'chek-hubspot-form-block'
 								),
 								value: 'na1',
 							},
@@ -195,16 +195,16 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 						>
 							{ __(
 								'Set as global defaults',
-								'hubspot-form-block'
+								'chek-hubspot-form-block'
 							) }
 						</Button>
 					) }
 				</PanelBody>
 				<PanelBody
-					title={ __( 'Form Settings', 'hubspot-form-block' ) }
+					title={ __( 'Form Settings', 'chek-hubspot-form-block' ) }
 				>
 					<TextControl
-						label={ __( 'Form ID', 'hubspot-form-block' ) }
+						label={ __( 'Form ID', 'chek-hubspot-form-block' ) }
 						value={ formId }
 						onChange={ ( newFormId ) =>
 							setAttributes( { formId: newFormId } )
@@ -212,7 +212,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 						required
 					/>
 					<TextControl
-						label={ __( 'Redirect URL', 'hubspot-form-block' ) }
+						label={ __( 'Redirect URL', 'chek-hubspot-form-block' ) }
 						type="url"
 						value={ redirectUrl }
 						onChange={ ( newRedirectUrl ) =>
@@ -222,7 +222,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 					<TextControl
 						label={ __(
 							'Submit button text',
-							'hubspot-form-block'
+							'chek-hubspot-form-block'
 						) }
 						value={ submitText }
 						onChange={ ( newSubmitText ) =>
@@ -232,7 +232,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 					<TextControl
 						label={ __(
 							'Google Tag Manager event name',
-							'hubspot-form-block'
+							'chek-hubspot-form-block'
 						) }
 						value={ gtmEventName }
 						onChange={ ( newGtmEventName ) =>
@@ -242,11 +242,11 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 					<ToggleControl
 						label={ __(
 							'Enable gated content',
-							'hubspot-form-block'
+							'chek-hubspot-form-block'
 						) }
 						help={ __(
 							'Remembers submissions in this browser per page. Use the "First Submission Message" block inside the success message area for content only shown immediately after submitting.',
-							'hubspot-form-block'
+							'chek-hubspot-form-block'
 						) }
 						checked={ persistSuccess }
 						onChange={ ( value ) =>
@@ -273,13 +273,13 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 						fill="#ff7a59"
 					/>
 				</svg>
-				{ __( 'Hubspot Form', 'hubspot-form-block' ) }
+				{ __( 'Chek Hubspot Form', 'chek-hubspot-form-block' ) }
 			</h3>
 			{ ( ! defaultPortalId || ! formId ) && (
 				<p>
 					{ __(
 						'Please enter a Portal ID and a Form ID in the sidebar block controls.',
-						'hubspot-form-block'
+						'chek-hubspot-form-block'
 					) }
 				</p>
 			) }
@@ -287,20 +287,20 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 				<p>
 					{ __(
 						'Please preview your changes to see the form, it cannot be shown in the editor directly.',
-						'hubspot-form-block'
+						'chek-hubspot-form-block'
 					) }
 				</p>
 			) }
-			<div className="wp-hubspot-form-block__inline-message-wrapper">
-				<p className="wp-hubspot-form-block__inline-message-label">
+			<div className="wp-chek-hubspot-form-block__inline-message-wrapper">
+				<p className="wp-chek-hubspot-form-block__inline-message-label">
 					{ persistSuccess
 						? __(
 								'Gated content — shown in place of the form after submission. Returning visitors see everything except the "First Submission Message" block.',
-								'hubspot-form-block'
+								'chek-hubspot-form-block'
 						  )
 						: __(
 								'Success message — shown in place of the form after submission',
-								'hubspot-form-block'
+								'chek-hubspot-form-block'
 						  ) }
 				</p>
 				{ persistSuccess && (
@@ -318,7 +318,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 										createBlock( 'core/paragraph', {
 											content: __(
 												'Success!',
-												'hubspot-form-block'
+												'chek-hubspot-form-block'
 											),
 										} ),
 									]
@@ -330,11 +330,11 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 					>
 						{ __(
 							'Insert First Submission Message',
-							'hubspot-form-block'
+							'chek-hubspot-form-block'
 						) }
 					</Button>
 				) }
-				<div className="wp-hubspot-form-block__inline-message">
+				<div className="wp-chek-hubspot-form-block__inline-message">
 					{ children }
 				</div>
 			</div>

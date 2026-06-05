@@ -23,7 +23,7 @@ test.describe( 'HubSpot Form — persist success', () => {
 		} );
 
 		await editor.insertBlock( {
-			name: 'hubspot/form',
+			name: 'chek/hubspot-form',
 			attributes: {
 				portalId: PORTAL_ID,
 				region: 'na1',
@@ -65,7 +65,7 @@ test.describe( 'HubSpot Form — persist success', () => {
 		} );
 
 		await editor.insertBlock( {
-			name: 'hubspot/form',
+			name: 'chek/hubspot-form',
 			attributes: {
 				portalId: PORTAL_ID,
 				region: 'na1',
@@ -106,7 +106,7 @@ test.describe( 'HubSpot Form — persist success', () => {
 		} );
 
 		await editor.insertBlock( {
-			name: 'hubspot/form',
+			name: 'chek/hubspot-form',
 			attributes: {
 				portalId: PORTAL_ID,
 				region: 'na1',
@@ -143,7 +143,7 @@ test.describe( 'HubSpot Form — persist success', () => {
 		} );
 
 		await editor.insertBlock( {
-			name: 'hubspot/form',
+			name: 'chek/hubspot-form',
 			attributes: {
 				portalId: PORTAL_ID,
 				region: 'na1',
@@ -206,7 +206,7 @@ test.describe( 'HubSpot Form — persist success', () => {
 		} );
 
 		await editor.insertBlock( {
-			name: 'hubspot/form',
+			name: 'chek/hubspot-form',
 			attributes: {
 				portalId: PORTAL_ID,
 				region: 'na1',
@@ -290,7 +290,7 @@ test.describe( 'HubSpot Form — persist success', () => {
 		} );
 
 		await editor.insertBlock( {
-			name: 'hubspot/form',
+			name: 'chek/hubspot-form',
 			attributes: {
 				portalId: PORTAL_ID,
 				region: 'na1',
@@ -353,7 +353,7 @@ test.describe( 'HubSpot Form — persist success', () => {
 
 		// The loading spinner should not remain.
 		await expect(
-			page.locator( `#${ instanceId } .wp-block-hubspot-form__loading` )
+			page.locator( `#${ instanceId } .wp-block-chek-hubspot-form__loading` )
 		).not.toBeAttached();
 	} );
 } );
