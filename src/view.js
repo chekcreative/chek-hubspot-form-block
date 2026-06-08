@@ -57,6 +57,16 @@ window.addEventListener( 'hs-form-event:on-submission:success', ( event ) => {
 	if ( template && template.content ) {
 		const element = document.getElementById( instanceId );
 		element.replaceChildren( template.content.cloneNode( true ) );
+		// Strip the HubSpot data attributes so the v4 SDK's async render
+		// can't re-render the form into the container after we've swapped
+		// in the success message. Without this, the SDK overwrites the
+		// success content as soon as its developer/{portalId}.js finishes
+		// loading — flaky in tests, broken under slow networks in production.
+		element.removeAttribute( 'data-form-id' );
+		element.removeAttribute( 'data-portal-id' );
+		element.removeAttribute( 'data-region' );
+		element.classList.remove( 'hs-form-html' );
+		element.dataset.hsFormSubmitted = '1';
 	}
 
 	if ( config.persistSuccess && config.storageKey ) {
