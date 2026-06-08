@@ -1,6 +1,8 @@
-# HubSpot Form Block
+# Chek Hubspot Form Block
 
 A WordPress block plugin that embeds HubSpot Forms v4 directly in page content. Forms render inline (not iframed) — HubSpot injects DOM into the container element.
+
+Forked from [humanmade/hubspot-form-block](https://github.com/humanmade/hubspot-form-block) (GPL-2.0).
 
 ## Features
 
@@ -39,10 +41,10 @@ https://developers.hubspot.com/docs/cms/start-building/features/forms/forms#defi
 
 ## Installation
 
-1. Download `hubspot-form-block.zip` from the [latest release](https://github.com/humanmade/hubspot-form-block/releases/latest).
+1. Download `chek-hubspot-form-block.zip` from the [latest release](https://github.com/chekcreative/chek-hubspot-form-block/releases/latest).
 2. Upload and activate via **Plugins → Add New → Upload Plugin** in the WordPress admin.
 3. Set your Portal ID and region under **Settings → General**.
-4. Insert the **HubSpot Form** block and enter your Form ID.
+4. Insert the **Chek Hubspot Form** block and enter your Form ID.
 
 ## Developer workflow
 
@@ -72,7 +74,7 @@ src/
 ├── render.php          # Server render: form container + <template> for success message
 ├── editor.scss         # Editor-only styles
 └── style.scss          # Frontend + editor styles
-hubspot-form-block.php  # Plugin entry: block registration, script enqueue, settings API
+chek-hubspot-form-block.php  # Plugin entry: block registration, script enqueue, settings API
 ```
 
 **Config injection:** Each form instance gets a unique target ID (`hubspot-form-{formId}-{n}`). A `<script>` block writes `window.hsForms[target] = {...config}` so `view.js` can pick it up when HubSpot fires `hs-form-event:on-ready`.
@@ -83,5 +85,4 @@ hubspot-form-block.php  # Plugin entry: block registration, script enqueue, sett
 
 ## Release workflow
 
-1. Push to `main` → `build-and-release.yml` automatically merges built `build/` into the `release` branch.
-2. Create a GitHub Release with a semver tag → `release.yml` replaces the `__VERSION__` placeholder in `hubspot-form-block.php`, commits, retags, and uploads `hubspot-form-block.zip`.
+Create a GitHub Release with a semver tag → `release.yml` replaces the `__VERSION__` placeholder in `chek-hubspot-form-block.php`, commits, retags, and uploads `chek-hubspot-form-block.zip`.

@@ -1,10 +1,10 @@
 {
-	"name": "hubspot-form",
+	"name": "chek-hubspot-form-block",
 	"private": true,
-	"description": "Hubspot Form embed block with configuration options",
-	"author": "Human Made Limited",
+	"description": "Chek Hubspot Form embed block with configuration options",
+	"author": "Chek Creative",
 	"license": "GPL-2.0-or-later",
-	"homepage": "https://github.com/humanmade/hubspot-form-block",
+	"homepage": "https://github.com/chekcreative/chek-hubspot-form-block",
 	"main": "build/index.js",
 	"scripts": {
 		"build": "wp-scripts build --webpack-copy-php",

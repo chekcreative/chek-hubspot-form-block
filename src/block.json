@@ -1,9 +1,9 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "hubspot/form",
+	"name": "chek/hubspot-form",
 	"version": "0.5.0",
-	"title": "Hubspot Form",
+	"title": "Chek Hubspot Form",
 	"category": "embed",
 	"icon": "clipboard",
 	"attributes": {
@@ -39,9 +39,14 @@
 		"businessUnitId": {
 			"type": [ "integer", "null" ],
 			"default": null
+		},
+		"formVersion": {
+			"type": "string",
+			"enum": [ "v4", "v2" ],
+			"default": "v4"
 		}
 	},
-	"description": "Hubspot form embed block with configuration options",
+	"description": "Chek Hubspot Form embed block with configuration options",
 	"supports": {
 		"html": false,
 		"align": true,
@@ -53,7 +58,7 @@
 		},
 		"anchor": true
 	},
-	"textdomain": "hubspot-form-block",
+	"textdomain": "chek-hubspot-form-block",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",

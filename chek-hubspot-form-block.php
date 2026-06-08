@@ -1,20 +1,20 @@
 <?php
 /**
- * Plugin Name:       Hubspot Form Block
- * Plugin URI:        https://github.com/humanmade/hubspot-form-block
+ * Plugin Name:       Chek Hubspot Form Block
+ * Plugin URI:        https://github.com/chekcreative/chek-hubspot-form-block
  * Description:       Hubspot form embed block with configuration options
  * Requires at least: 6.1
  * Requires PHP:      7.0
  * Version:           __VERSION__
- * Author:            Human Made Limited
+ * Author:            Chek Creative
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       hubspot-form-block
+ * Text Domain:       chek-hubspot-form-block
  *
- * @package           hubspot-form-block
+ * @package           chek-hubspot-form-block
  */
 
-namespace HM\HubspotFormBlock;
+namespace Chek\HubspotFormBlock;
 
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
@@ -40,7 +40,7 @@ function register_scripts() {
 	wp_register_script(
 		'hs-forms',
 		sprintf( 'https://js-%s.hsforms.net/forms/embed/developer/%s.js', $region, $portal_id ),
-		[ 'hubspot-form-view-script' ],
+		[ 'chek-hubspot-form-view-script' ],
 		null,
 		[ 'strategy' => 'async' ]
 	);

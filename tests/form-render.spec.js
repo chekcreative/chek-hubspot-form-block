@@ -18,7 +18,7 @@ test.describe( 'HubSpot Form — frontend render', () => {
 		} );
 
 		await editor.insertBlock( {
-			name: 'hubspot/form',
+			name: 'chek/hubspot-form',
 			attributes: {
 				portalId: PORTAL_ID,
 				region: 'na1',
@@ -52,7 +52,7 @@ test.describe( 'HubSpot Form — frontend render', () => {
 		} );
 
 		await editor.insertBlock( {
-			name: 'hubspot/form',
+			name: 'chek/hubspot-form',
 			attributes: {
 				portalId: PORTAL_ID,
 				region: 'na1',

@@ -18,11 +18,11 @@ test.describe( 'HubSpot Form Block', () => {
 			welcomeGuide: false,
 		} );
 
-		await editor.insertBlock( { name: 'hubspot/form' } );
+		await editor.insertBlock( { name: 'chek/hubspot-form' } );
 
 		const blocks = await editor.getBlocks();
 		expect( blocks ).toHaveLength( 1 );
-		expect( blocks[ 0 ].name ).toBe( 'hubspot/form' );
+		expect( blocks[ 0 ].name ).toBe( 'chek/hubspot-form' );
 	} );
 
 	test( 'should show setup prompt when portal/form ID not set', async ( {
@@ -35,10 +35,10 @@ test.describe( 'HubSpot Form Block', () => {
 			welcomeGuide: false,
 		} );
 
-		await editor.insertBlock( { name: 'hubspot/form' } );
+		await editor.insertBlock( { name: 'chek/hubspot-form' } );
 
 		const block = editorCanvas( page ).getByRole( 'document', {
-			name: 'Block: Hubspot Form',
+			name: 'Block: Chek Hubspot Form',
 		} );
 		await expect( block ).toBeVisible();
 		await expect( block.getByText( /Portal ID.*Form ID/i ) ).toBeVisible();
@@ -54,10 +54,10 @@ test.describe( 'HubSpot Form Block', () => {
 			welcomeGuide: false,
 		} );
 
-		await editor.insertBlock( { name: 'hubspot/form' } );
+		await editor.insertBlock( { name: 'chek/hubspot-form' } );
 
 		const block = editorCanvas( page ).getByRole( 'document', {
-			name: 'Block: Hubspot Form',
+			name: 'Block: Chek Hubspot Form',
 		} );
 		await expect( block ).toBeVisible();
 		await expect( block.getByText( /Success message/i ) ).toBeVisible();

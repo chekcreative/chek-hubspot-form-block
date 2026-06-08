@@ -23,7 +23,7 @@ test.describe( 'HubSpot Form — persist success', () => {
 		} );
 
 		await editor.insertBlock( {
-			name: 'hubspot/form',
+			name: 'chek/hubspot-form',
 			attributes: {
 				portalId: PORTAL_ID,
 				region: 'na1',
@@ -65,7 +65,7 @@ test.describe( 'HubSpot Form — persist success', () => {
 		} );
 
 		await editor.insertBlock( {
-			name: 'hubspot/form',
+			name: 'chek/hubspot-form',
 			attributes: {
 				portalId: PORTAL_ID,
 				region: 'na1',
@@ -106,7 +106,7 @@ test.describe( 'HubSpot Form — persist success', () => {
 		} );
 
 		await editor.insertBlock( {
-			name: 'hubspot/form',
+			name: 'chek/hubspot-form',
 			attributes: {
 				portalId: PORTAL_ID,
 				region: 'na1',
@@ -143,7 +143,7 @@ test.describe( 'HubSpot Form — persist success', () => {
 		} );
 
 		await editor.insertBlock( {
-			name: 'hubspot/form',
+			name: 'chek/hubspot-form',
 			attributes: {
 				portalId: PORTAL_ID,
 				region: 'na1',
@@ -200,13 +200,26 @@ test.describe( 'HubSpot Form — persist success', () => {
 		editor,
 		page,
 	} ) => {
+		// Block the real HubSpot v4 SDK so its async render can't race
+		// against our synthetic success event. In production this race is
+		// not possible (the real SDK only fires on-submission:success after
+		// the user has already submitted, by which point the SDK has long
+		// since rendered the form). The test simulates the post-submission
+		// state from the moment of page load, so the SDK is still trying
+		// to render when our synthetic event fires — without this block,
+		// the SDK can overwrite the success message after view.js swaps it in.
+		await page.route( '**/forms/embed/developer/**', ( route ) =>
+			route.abort()
+		);
+		await page.route( '**/hs-scripts.com/**', ( route ) => route.abort() );
+
 		await admin.createNewPost();
 		await editor.setPreferences( 'core/edit-post', {
 			welcomeGuide: false,
 		} );
 
 		await editor.insertBlock( {
-			name: 'hubspot/form',
+			name: 'chek/hubspot-form',
 			attributes: {
 				portalId: PORTAL_ID,
 				region: 'na1',
@@ -290,7 +303,7 @@ test.describe( 'HubSpot Form — persist success', () => {
 		} );
 
 		await editor.insertBlock( {
-			name: 'hubspot/form',
+			name: 'chek/hubspot-form',
 			attributes: {
 				portalId: PORTAL_ID,
 				region: 'na1',
@@ -353,7 +366,9 @@ test.describe( 'HubSpot Form — persist success', () => {
 
 		// The loading spinner should not remain.
 		await expect(
-			page.locator( `#${ instanceId } .wp-block-hubspot-form__loading` )
+			page.locator(
+				`#${ instanceId } .wp-block-chek-hubspot-form__loading`
+			)
 		).not.toBeAttached();
 	} );
 } );

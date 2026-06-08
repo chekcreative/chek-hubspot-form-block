@@ -1,5 +1,5 @@
-=== Hubspot Form Block ===
-Contributors:      Human Made Limited
+=== Chek Hubspot Form Block ===
+Contributors:      Chek Creative
 Tags:              block, hubspot, forms
 Tested up to:      6.9
 Stable tag:        0.5.0
@@ -12,7 +12,7 @@ A lightweight Hubspot Form embed block with configuration options.
 
 A basic block for embedding Hubspot forms on your website.
 
-NOTE: This is using the Hubspot Forms v4 API.
+NOTE: This is using the Hubspot Forms v4 API. Forked from humanmade/hubspot-form-block.
 
 Allows configuring the following settings:
 
@@ -41,13 +41,14 @@ This section describes how to install the plugin and get it working.
 
 e.g.
 
-1. Upload the plugin files to the `/wp-content/plugins/hubspot-form-block` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/chek-hubspot-form-block` directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 
 == Changelog ==
 
 = 0.5.0 =
+* Fork: Renamed plugin to Chek Hubspot Form Block, namespaced under `Chek\HubspotFormBlock`, block name `chek/hubspot-form`
 * Add: Inner blocks as inline success message — add any WordPress blocks (paragraphs, images, embeds, etc.) directly inside the form block; they replace the form after successful submission
 * Add: Playwright end-to-end test suite covering block registration, form rendering, and inline success message behaviour
 * Add: WordPress Playground local development environment (`npm run playground:start`)
