@@ -145,7 +145,10 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 						required={ ! defaultPortalId }
 					/>
 					<TextControl
-						label={ __( 'Business Unit ID', 'chek-hubspot-form-block' ) }
+						label={ __(
+							'Business Unit ID',
+							'chek-hubspot-form-block'
+						) }
 						value={ businessUnitId ? String( businessUnitId ) : '' }
 						placeholder={ String( defaultBusinessUnitId ) }
 						onChange={ ( value ) => {
@@ -160,7 +163,10 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 						label={ __( 'Region', 'chek-hubspot-form-block' ) }
 						options={ [
 							{
-								label: __( 'Europe', 'chek-hubspot-form-block' ),
+								label: __(
+									'Europe',
+									'chek-hubspot-form-block'
+								),
 								value: 'eu1',
 							},
 							{
@@ -240,7 +246,10 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 						required
 					/>
 					<TextControl
-						label={ __( 'Redirect URL', 'chek-hubspot-form-block' ) }
+						label={ __(
+							'Redirect URL',
+							'chek-hubspot-form-block'
+						) }
 						type="url"
 						value={ redirectUrl }
 						onChange={ ( newRedirectUrl ) =>

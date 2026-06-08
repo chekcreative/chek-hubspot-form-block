@@ -353,7 +353,9 @@ test.describe( 'HubSpot Form — persist success', () => {
 
 		// The loading spinner should not remain.
 		await expect(
-			page.locator( `#${ instanceId } .wp-block-chek-hubspot-form__loading` )
+			page.locator(
+				`#${ instanceId } .wp-block-chek-hubspot-form__loading`
+			)
 		).not.toBeAttached();
 	} );
 } );
