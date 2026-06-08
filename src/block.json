@@ -39,6 +39,11 @@
 		"businessUnitId": {
 			"type": [ "integer", "null" ],
 			"default": null
+		},
+		"formVersion": {
+			"type": "string",
+			"enum": [ "v4", "v2" ],
+			"default": "v4"
 		}
 	},
 	"description": "Chek Hubspot Form embed block with configuration options",

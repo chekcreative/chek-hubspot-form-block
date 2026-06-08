@@ -57,6 +57,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 		gtmEventName,
 		persistSuccess,
 		businessUnitId,
+		formVersion,
 	} = attributes;
 
 	const [ isGlobalChanged, setIsGlobalChanged ] = useState( false );
@@ -203,6 +204,33 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 				<PanelBody
 					title={ __( 'Form Settings', 'chek-hubspot-form-block' ) }
 				>
+					<SelectControl
+						label={ __( 'Form Type', 'chek-hubspot-form-block' ) }
+						help={ __(
+							'New editor forms render inline (no iframe). Classic forms render inside an iframe via HubSpot’s v2 SDK.',
+							'chek-hubspot-form-block'
+						) }
+						options={ [
+							{
+								label: __(
+									'New editor (v4 inline)',
+									'chek-hubspot-form-block'
+								),
+								value: 'v4',
+							},
+							{
+								label: __(
+									'Classic (v2 iframe)',
+									'chek-hubspot-form-block'
+								),
+								value: 'v2',
+							},
+						] }
+						value={ formVersion || 'v4' }
+						onChange={ ( newFormVersion ) =>
+							setAttributes( { formVersion: newFormVersion } )
+						}
+					/>
 					<TextControl
 						label={ __( 'Form ID', 'chek-hubspot-form-block' ) }
 						value={ formId }
@@ -245,14 +273,14 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 							'chek-hubspot-form-block'
 						) }
 						help={ __(
-							'Remembers submissions in this browser per page. Use the "First Submission Message" block inside the success message area for content only shown immediately after submitting.',
+							'Remembers submissions in this browser per page. Use the "First Submission Message" block inside the success message area for content only shown immediately after submitting. Not supported for Classic (v2) forms.',
 							'chek-hubspot-form-block'
 						) }
 						checked={ persistSuccess }
 						onChange={ ( value ) =>
 							setAttributes( { persistSuccess: value } )
 						}
-						disabled={ !! redirectUrl }
+						disabled={ !! redirectUrl || formVersion === 'v2' }
 					/>
 				</PanelBody>
 			</InspectorControls>
